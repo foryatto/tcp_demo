@@ -2,28 +2,40 @@
 
 namespace tcp_demo
 {
-    class GenFrameFile {
+    class GenFrameFile
+    {
 
         const int FrameSize = 32 * 1024;
         const int FrameNums = 10;
         const int Size = FrameSize * FrameNums;
 
-        public static void Main(string[] args) {
+        public static void Main(string[] args)
+        {
             var gen = new GenFrameFile();
             gen.generateFrameFile();
         }
-        
+
         public void generateFrameFile()
         {
-            byte[] frameData = randomFrameData();
-            saveToFile("测试文件1", frameData);
-
-            byte[] frameData2 = new byte[Size-4];
-            for(int i = 0; i < Size-4; i++)
+            for (int i = 0; i < FrameNums; i++)
             {
-                frameData2[i] = frameData[i+4];
+                byte[] frameData = randomFrameData();
+                saveToFile("测试文件1", frameData);
+                if (i == 0)
+                {
+                    byte[] frameData2 = new byte[FrameSize - 4];
+                    for(int j = 0; j < FrameSize - 4; j++)
+                    {
+                        frameData2[j] = frameData[j + 4];
+                    }
+                    saveToFile("测试文件2", frameData2);
+                }
+                else
+                {
+                    saveToFile("测试文件2", frameData);
+                }
             }
-            saveToFile("测试文件2", frameData2);
+            
         }
 
         public void saveToFile(string filename, byte[] data)
@@ -37,7 +49,7 @@ namespace tcp_demo
 
         public byte[] randomFrameData()
         {
-            byte[] data = new byte[Size];
+            byte[] data = new byte[FrameSize];
             Random random = new Random();
 
             random.NextBytes(data);

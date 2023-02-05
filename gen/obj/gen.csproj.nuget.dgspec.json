@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\admin\\Desktop\\tcp_demo\\gen\\gen.csproj": {}
+    "G:\\github\\tcp_demo\\gen\\gen.csproj": {}
   },
   "projects": {
-    "C:\\Users\\admin\\Desktop\\tcp_demo\\gen\\gen.csproj": {
+    "G:\\github\\tcp_demo\\gen\\gen.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\admin\\Desktop\\tcp_demo\\gen\\gen.csproj",
+        "projectUniqueName": "G:\\github\\tcp_demo\\gen\\gen.csproj",
         "projectName": "gen",
-        "projectPath": "C:\\Users\\admin\\Desktop\\tcp_demo\\gen\\gen.csproj",
+        "projectPath": "G:\\github\\tcp_demo\\gen\\gen.csproj",
         "packagesPath": "C:\\Users\\admin\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\admin\\Desktop\\tcp_demo\\gen\\obj\\",
+        "outputPath": "G:\\github\\tcp_demo\\gen\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

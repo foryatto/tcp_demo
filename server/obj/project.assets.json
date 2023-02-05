@@ -14,11 +14,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\admin\\Desktop\\tcp_demo\\server\\server.csproj",
+      "projectUniqueName": "G:\\github\\tcp_demo\\server\\server.csproj",
       "projectName": "server",
-      "projectPath": "C:\\Users\\admin\\Desktop\\tcp_demo\\server\\server.csproj",
+      "projectPath": "G:\\github\\tcp_demo\\server\\server.csproj",
       "packagesPath": "C:\\Users\\admin\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\admin\\Desktop\\tcp_demo\\server\\obj\\",
+      "outputPath": "G:\\github\\tcp_demo\\server\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
