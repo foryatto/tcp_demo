@@ -23,6 +23,7 @@ namespace tcp_demo
             Console.WriteLine($"Server is running on {addr}:{port}");
 
             int fileNum = 0;
+
             while (true)
             {
                 TcpClient client = listen.AcceptTcpClient();
@@ -44,7 +45,7 @@ namespace tcp_demo
             NetworkStream stream = client.GetStream();
             byte[] data = new byte[1024];
 
-            // function vars
+            // parse frame
             int idx = 1;
             int prev = 0;
             bool found = false;
@@ -53,19 +54,18 @@ namespace tcp_demo
 
             while (true)
             {
-                int n = 0;
+                int n;
                 try
                 {
                     n = stream.Read(data, 0, data.Length);
                 }
-                catch (IOException e)
+                catch (IOException _)
                 {
                     Console.WriteLine("连接已断开");
                     break;
                 }
                 if (n > 0)
                 {
-                    Console.WriteLine(n);
                     for (int i = 0; i < n; i++)
                     {
                         cacheData[currentCacheSize] = data[i];
@@ -83,11 +83,10 @@ namespace tcp_demo
                             break;
                         }
                     }
-                    Console.WriteLine(currentCacheSize);
                     if (found)
                     {
                         count++;
-                        saveToFile($"{fileNum}_{count}", cacheData, prev, idx);
+                        saveToFile(fileNum, count, cacheData, prev, idx);
                         prev = idx;
 
                         idx++;
@@ -100,14 +99,20 @@ namespace tcp_demo
                 }
             }
             count++;
-            saveToFile($"{fileNum}_{count}", cacheData, prev, currentCacheSize);
-            saveToFile($"{fileNum}_all", cacheData, 0, currentCacheSize);
+            saveToFile(fileNum, count, cacheData, prev, currentCacheSize);
+            saveToFile(fileNum, 0, cacheData, 0, currentCacheSize);
 
         }
 
-        static void saveToFile(string filename, byte[] data, int start, int end)
+        static void saveToFile(int fileNum, int count, byte[] data, int start, int end)
         {
-            FileStream file = new FileStream(filename,
+            string dirPath = $"file_{fileNum}";
+            if (!Directory.Exists(dirPath))
+            {
+                Directory.CreateDirectory(dirPath);
+            }
+            string filePath = Path.Combine(dirPath, $"{fileNum}_{count}");
+            FileStream file = new FileStream(filePath,
             FileMode.OpenOrCreate, FileAccess.Write);
 
             for (int i = start; i < end; i++)

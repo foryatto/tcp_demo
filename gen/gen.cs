@@ -41,7 +41,7 @@ namespace tcp_demo
         public void saveToFile(string filename, byte[] data)
         {
             FileStream file = new FileStream(filename,
-            FileMode.OpenOrCreate, FileAccess.Write);
+            FileMode.Append, FileAccess.Write);
 
             file.Write(data, 0, data.Length);
             file.Close();

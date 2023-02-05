@@ -13,7 +13,7 @@ var fileName = flag.String("file", "测试文件2", "文件名")
 func main() {
 	flag.Parse()
 
-	server := "127.0.0.1:34567"
+	server := "127.0.0.1:8080"
 
 	conn, err := net.Dial("tcp", server)
 	if err != nil {

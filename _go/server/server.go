@@ -14,11 +14,11 @@ var (
 )
 
 func main() {
-	listen, err := net.Listen("tcp", "localhost:34567")
+	listen, err := net.Listen("tcp", "localhost:8080")
 	if err != nil {
 		panic(err)
 	}
-	fmt.Printf("Server is running on 127.0.0.1:34567")
+	fmt.Printf("Server is running on 127.0.0.1:8080")
 	for {
 		conn, err := listen.Accept()
 		if err != nil {
