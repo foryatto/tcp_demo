@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "tcpdemo_server": {
+      "commandName": "Project",
+      "commandLineArgs": "main/"
+    }
+  }
+}

@@ -1,0 +1,15 @@
+C:\Users\admin\Desktop\tcp_demo\tcp_demo\bin\Debug\net6.0\gen.exe
+C:\Users\admin\Desktop\tcp_demo\tcp_demo\bin\Debug\net6.0\gen.deps.json
+C:\Users\admin\Desktop\tcp_demo\tcp_demo\bin\Debug\net6.0\gen.runtimeconfig.json
+C:\Users\admin\Desktop\tcp_demo\tcp_demo\bin\Debug\net6.0\gen.dll
+C:\Users\admin\Desktop\tcp_demo\tcp_demo\bin\Debug\net6.0\gen.pdb
+C:\Users\admin\Desktop\tcp_demo\tcp_demo\obj\Debug\net6.0\gen.csproj.AssemblyReference.cache
+C:\Users\admin\Desktop\tcp_demo\tcp_demo\obj\Debug\net6.0\gen.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\admin\Desktop\tcp_demo\tcp_demo\obj\Debug\net6.0\gen.AssemblyInfoInputs.cache
+C:\Users\admin\Desktop\tcp_demo\tcp_demo\obj\Debug\net6.0\gen.AssemblyInfo.cs
+C:\Users\admin\Desktop\tcp_demo\tcp_demo\obj\Debug\net6.0\gen.csproj.CoreCompileInputs.cache
+C:\Users\admin\Desktop\tcp_demo\tcp_demo\obj\Debug\net6.0\gen.dll
+C:\Users\admin\Desktop\tcp_demo\tcp_demo\obj\Debug\net6.0\refint\gen.dll
+C:\Users\admin\Desktop\tcp_demo\tcp_demo\obj\Debug\net6.0\gen.pdb
+C:\Users\admin\Desktop\tcp_demo\tcp_demo\obj\Debug\net6.0\gen.genruntimeconfig.cache
+C:\Users\admin\Desktop\tcp_demo\tcp_demo\obj\Debug\net6.0\ref\gen.dll
