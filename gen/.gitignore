@@ -1,0 +1,8 @@
+# Build and Object Folders  
+bin/  
+obj/
+Properties/
+
+.vs/
+*.sln
+*.csproj

@@ -1,8 +1,0 @@
-{
-  "profiles": {
-    "tcp_demo": {
-      "commandName": "Project",
-      "commandLineArgs": "/main:tcp_demo.Server"
-    }
-  }
-}

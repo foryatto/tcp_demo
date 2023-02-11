@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Text;
 using System.Net;
 using System.Net.Http;
 using System.Net.Sockets;
@@ -11,19 +12,19 @@ namespace tcp_demo
         {
             var client = new Client("127.0.0.1", 34567);
 
-            // get filename from agrs
+            // user input
             if (args.Length > 0)
             {
                 for (int i = 0; i < args.Length; i++)
                 {
-                    client.sendToServer(args[i]);
+                    client.SendToServer(args[i]);
                 }
             }
             else
             {
                 // send default files to server
-                client.sendToServer("测试文件1");
-                client.sendToServer("测试文件2");
+                client.SendToServer("测试文件1");
+                client.SendToServer("测试文件2");
             }
 
             Console.WriteLine("done.");
@@ -32,26 +33,40 @@ namespace tcp_demo
 
     public class Client
     {
-        private string _addr;
-        private int _port;
-
-        // 文件序号
-        private byte _fileNumber;
+        private readonly string _addr;
+        private readonly int _port;
 
         const int BufSize = 1024;
 
         public Client(string addr, int port)
         {
-            this._addr = addr;
-            this._port = port;
+            _addr = addr;
+            _port = port;
         }
 
-        public void sendToServer(string filename)
+        public void SendToServer(string filename)
         {
-            var client = new TcpClient();
+            // create client and stream
+            TcpClient client = new();
+
             client.Connect(_addr, _port);
+            
             var stream = client.GetStream();
 
+            // send filename to server
+            byte[] nameBytes = Encoding.UTF8.GetBytes(filename);
+            byte[] buffer = new byte[nameBytes.Length + 1];
+            buffer[0] = (byte)nameBytes.Length;
+            for(int i = 0; i < nameBytes.Length; i++)
+            {
+                buffer[i+1] = (byte)nameBytes[i];
+            }
+            stream.Write(buffer);
+            Console.WriteLine($"send {filename} to server.");
+
+
+            // read datas from file
+            // and send to server
             byte[] data = new byte[BufSize];
 
             FileStream file = new FileStream(filename,
@@ -63,8 +78,10 @@ namespace tcp_demo
                 stream.Write(data, 0, n);
             }
 
+            // close
             file.Close();
             client.Close();
+            stream.Close();
         }
 
     }
